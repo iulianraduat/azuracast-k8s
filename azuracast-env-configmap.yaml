@@ -1,0 +1,15 @@
+apiVersion: v1
+data:
+  APPLICATION_ENV: production
+  AUTO_ASSIGN_PORT_MAX: "8000"
+  AUTO_ASSIGN_PORT_MIN: "8000"
+  COMPOSER_PLUGIN_MODE: "false"
+  MYSQL_PASSWORD: azur4c457
+  MYSQL_RANDOM_ROOT_PASSWORD: "yes"
+  SHOW_DETAILED_ERRORS: "false"
+kind: ConfigMap
+metadata:
+  creationTimestamp: null
+  labels:
+    io.kompose.service: web-azuracast-env
+  name: azuracast-env

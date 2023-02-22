@@ -1,0 +1,137 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  annotations:
+    com.centurylinklabs.watchtower.scope: azuracast
+  creationTimestamp: null
+  labels:
+    io.kompose.service: web
+  name: web
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      io.kompose.service: web
+  strategy:
+    type: Recreate
+  template:
+    metadata:
+      annotations:
+        com.centurylinklabs.watchtower.scope: azuracast
+      creationTimestamp: null
+      labels:
+        io.kompose.network/bin-default: "true"
+        io.kompose.service: web
+    spec:
+      containers:
+        - env:
+            - name: APPLICATION_ENV
+              valueFrom:
+                configMapKeyRef:
+                  key: APPLICATION_ENV
+                  name: azuracast-env
+            - name: AUTO_ASSIGN_PORT_MAX
+              valueFrom:
+                configMapKeyRef:
+                  key: AUTO_ASSIGN_PORT_MAX
+                  name: azuracast-env
+            - name: AUTO_ASSIGN_PORT_MIN
+              valueFrom:
+                configMapKeyRef:
+                  key: AUTO_ASSIGN_PORT_MIN
+                  name: azuracast-env
+            - name: AZURACAST_DC_REVISION
+              value: "14"
+            - name: AZURACAST_SFTP_PORT
+              value: "2022"
+            - name: AZURACAST_VERSION
+              value: latest
+            - name: COMPOSER_PLUGIN_MODE
+              valueFrom:
+                configMapKeyRef:
+                  key: COMPOSER_PLUGIN_MODE
+                  name: azuracast-env
+            - name: LANG
+              value: en_US.UTF-8
+            - name: LETSENCRYPT_EMAIL
+              value: iulian.radu@gmx.at
+            - name: LETSENCRYPT_HOST
+              value: radio.iulian-radu.eu
+            - name: MYSQL_PASSWORD
+              valueFrom:
+                configMapKeyRef:
+                  key: MYSQL_PASSWORD
+                  name: azuracast-env
+            - name: MYSQL_RANDOM_ROOT_PASSWORD
+              valueFrom:
+                configMapKeyRef:
+                  key: MYSQL_RANDOM_ROOT_PASSWORD
+                  name: azuracast-env
+            - name: NGINX_TIMEOUT
+              value: "1800"
+            - name: PGID
+              value: "1000"
+            - name: PUID
+              value: "1000"
+            - name: SHOW_DETAILED_ERRORS
+              valueFrom:
+                configMapKeyRef:
+                  key: SHOW_DETAILED_ERRORS
+                  name: azuracast-env
+          image: ghcr.io/azuracast/azuracast:latest
+          name: azuracast
+          ports:
+            - containerPort: 80
+            - containerPort: 443
+            - containerPort: 2022
+            - containerPort: 8000
+          resources: {}
+          volumeMounts:
+            - mountPath: /var/azuracast/uploads
+              name: www-uploads
+            - mountPath: /var/azuracast/stations
+              name: station-data
+            - mountPath: /var/azuracast/servers/shoutcast2
+              name: shoutcast2-install
+            - mountPath: /var/azuracast/servers/stereo_tool
+              name: stereo-tool-install
+            - mountPath: /var/azuracast/geoip
+              name: geolite-install
+            - mountPath: /var/azuracast/sftpgo/persist
+              name: sftpgo-data
+            - mountPath: /var/azuracast/backups
+              name: backups
+            - mountPath: /var/azuracast/acme
+              name: acme
+            - mountPath: /var/lib/mysql
+              name: db-data
+      restartPolicy: Always
+      volumes:
+        - name: www-uploads
+          persistentVolumeClaim:
+            claimName: www-uploads
+        - name: station-data
+          persistentVolumeClaim:
+            claimName: station-data
+        - name: shoutcast2-install
+          persistentVolumeClaim:
+            claimName: shoutcast2-install
+        - name: stereo-tool-install
+          persistentVolumeClaim:
+            claimName: stereo-tool-install
+        - name: geolite-install
+          persistentVolumeClaim:
+            claimName: geolite-install
+        - name: sftpgo-data
+          persistentVolumeClaim:
+            claimName: sftpgo-data
+        - name: backups
+          persistentVolumeClaim:
+            claimName: backups
+        - name: acme
+          persistentVolumeClaim:
+            claimName: acme
+        - name: db-data
+          persistentVolumeClaim:
+            claimName: db-data
+status: {}
