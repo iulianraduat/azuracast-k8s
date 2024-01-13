@@ -23,12 +23,12 @@ microk8s kubectl apply -f .
 ```
 
 You should see in the default namespace defined for kubernetes all the new objects.
-The corresponding service is called web.
+The corresponding service is called azuracast.
 
 If you want to use it in a different namespace then just add "-n &lt;namespace&gt;" as argument to kubectl call.
 
 You need to use a proxy in front of it (like nginx) to redirect to the exposed port on k8s node.
-To find the port just check the "Internal Endpoints" of the service "web".
+To find the port just check the "Internal Endpoints" of the service "azuracast".
 
 Please configure your stations to stream via http so you do not need to use one port per station.
 

@@ -11,5 +11,5 @@ kind: ConfigMap
 metadata:
   creationTimestamp: null
   labels:
-    io.kompose.service: web-azuracast-env
+    io.kompose.service: azuracast-env
   name: azuracast-env

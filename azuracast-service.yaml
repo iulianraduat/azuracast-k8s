@@ -5,8 +5,8 @@ metadata:
     com.centurylinklabs.watchtower.scope: azuracast
   creationTimestamp: null
   labels:
-    io.kompose.service: web
-  name: web
+    io.kompose.service: azuracast
+  name: azuracast
 spec:
   type: NodePort
   ports:
@@ -23,6 +23,6 @@ spec:
       port: 8000
       targetPort: 8000
   selector:
-    io.kompose.service: web
+    io.kompose.service: azuracast
 status:
   loadBalancer: {}
