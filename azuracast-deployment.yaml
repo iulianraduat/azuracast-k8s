@@ -78,7 +78,7 @@ spec:
                 configMapKeyRef:
                   key: SHOW_DETAILED_ERRORS
                   name: azuracast-env
-          image: ghcr.io/azuracast/azuracast:latest
+          image: ghcr.io/azuracast/azuracast:0.18.5
           name: azuracast
           ports:
             - containerPort: 80
