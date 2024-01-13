@@ -28,11 +28,14 @@ The corresponding service is called azuracast.
 If you want to use it in a different namespace then just add "-n &lt;namespace&gt;" as argument to kubectl call.
 
 You need to use a proxy in front of it (like nginx) to redirect to the exposed port on k8s node.
-To find the mapped port for port 80 just check the "Internal Endpoints" of the service "azuracast" or run `kubectl get svc` from the shell of the server running the cluster.
+To find the mapped ports for ports 80 and 8000 just check the "Internal Endpoints" of the service "azuracast"
+or run `kubectl get svc` from the shell of the server running the cluster.
 
 Please configure your stations to stream via http so you do not need to use one port per station.
 
 ## Notice
+
+The name of the stations must start with `radio-` for the nginx config file to work.
 
 The .yaml files are generated from the docker-compose.yml of the specified release.
 
