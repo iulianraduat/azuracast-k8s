@@ -1,6 +1,6 @@
 # azuracast-k8s
 
-AzuraCast as k8s deployment • Rolling Release #835a172 (2023-02-22 6:31)
+AzuraCast as k8s deployment
 
 ## Install
 
@@ -22,8 +22,8 @@ If it does not work for microk8s then try:
 microk8s kubectl apply -f .
 ```
 
-You should see in the default namespace defined for kubernetes all the new objects.
-The corresponding service is called azuracast.
+You should see in the `default` namespace defined for kubernetes all the new objects.
+The corresponding service is called `azuracast`.
 
 If you want to use it in a different namespace then just add "-n &lt;namespace&gt;" as argument to kubectl call.
 
