@@ -84,6 +84,7 @@ spec:
             - containerPort: 80
             - containerPort: 443
             - containerPort: 2022
+            - containerPort: 3306
             - containerPort: 8000
           resources: {}
           volumeMounts:

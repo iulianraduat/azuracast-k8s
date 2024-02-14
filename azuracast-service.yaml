@@ -19,6 +19,9 @@ spec:
     - name: "2022"
       port: 2022
       targetPort: 2022
+    - name: "3306"
+      port: 3306
+      targetPort: 3306
     - name: "8000"
       port: 8000
       targetPort: 8000
