@@ -33,6 +33,9 @@ or run `kubectl get svc` from the shell of the server running the cluster.
 
 Please configure your stations to stream via http so you do not need to use one port per station.
 
+Place the `jsscript.js` file in the root of your web server (in the example nginx.conf it is `/var/www/azuracast`).
+This script allows you to be able to navigate between episodes from the episode page. (It adds PREV/NEXT links.)
+
 ## Notice
 
 The name of the stations must start with `radio-` for the nginx config file to work.
