@@ -9,6 +9,18 @@ window.onload = (event) => {
 
   target.insertBefore(getAElement("<< PREV", "prev", -1), target.firstChild);
   target.appendChild(getAElement("NEXT >>", "next", 1));
+
+  /* autoplay, but only after interacting with the player (click once on play) */
+  targets = document.getElementsByTagName("audio");
+  if (!targets || targets.length == 0) {
+    return;
+  }
+  var target = targets[0];
+  target.onended = function () {
+    var href = getHref(1);
+    window.location.href = href;
+  };
+  target.play();
 };
 
 function getAElement(label, title, hrefDir) {
