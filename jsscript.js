@@ -1,4 +1,4 @@
-window.onload = (event) => {
+window.onload = () => {
   var targets = document.getElementsByClassName("card-header bg-primary");
   if (!targets || targets.length == 0) {
     return;
@@ -16,10 +16,23 @@ window.onload = (event) => {
     return;
   }
   var target = targets[0];
+  var podcastId = window.location.href.match(/\/episode\/([^\/]+)/)[1];
+  var localStorageKey = 'azuracast_podcast_' + podcastId;
   target.onended = function () {
+    localStorage.removeItem(localStorageKey);
     var href = getHref(1);
     window.location.href = href;
   };
+  target.onpause = function () {
+    localStorage.setItem(localStorageKey, target.currentTime);
+  };
+  target.onplay = function () {
+    localStorage.removeItem(localStorageKey);
+  };
+  var pauseTime = localStorage.getItem(localStorageKey);
+  if (pauseTime) {
+    target.currentTime = pauseTime;
+  }
   target.play();
 };
 
