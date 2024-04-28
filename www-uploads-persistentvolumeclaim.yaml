@@ -4,7 +4,7 @@ metadata:
   creationTimestamp: null
   labels:
     io.kompose.service: www-uploads
-  name: www-uploads
+  name: azuracast-www-uploads
 spec:
   accessModes:
     - ReadWriteOnce

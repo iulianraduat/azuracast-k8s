@@ -79,6 +79,7 @@ spec:
                   key: SHOW_DETAILED_ERRORS
                   name: azuracast-env
           image: ghcr.io/azuracast/azuracast:0.18.5
+          imagePullPolicy: Always
           name: azuracast
           ports:
             - containerPort: 80
@@ -89,50 +90,50 @@ spec:
           resources: {}
           volumeMounts:
             - mountPath: /var/azuracast/uploads
-              name: www-uploads
+              name: azuracast-www-uploads
             - mountPath: /var/azuracast/stations
-              name: station-data
+              name: azuracast-station-data
             - mountPath: /var/azuracast/servers/shoutcast2
-              name: shoutcast2-install
+              name: azuracast-shoutcast2-install
             - mountPath: /var/azuracast/servers/stereo_tool
-              name: stereo-tool-install
+              name: azuracast-stereo-tool-install
             - mountPath: /var/azuracast/geoip
-              name: geolite-install
+              name: azuracast-geolite-install
             - mountPath: /var/azuracast/sftpgo/persist
-              name: sftpgo-data
+              name: azuracast-sftpgo-data
             - mountPath: /var/azuracast/backups
-              name: backups
+              name: azuracast-backups
             - mountPath: /var/azuracast/acme
-              name: acme
+              name: azuracast-acme
             - mountPath: /var/lib/mysql
-              name: db-data
+              name: azuracast-db-data
       restartPolicy: Always
       volumes:
-        - name: www-uploads
+        - name: azuracast-www-uploads
           persistentVolumeClaim:
-            claimName: www-uploads
-        - name: station-data
+            claimName: azuracast-www-uploads
+        - name: azuracast-station-data
           persistentVolumeClaim:
-            claimName: station-data
-        - name: shoutcast2-install
+            claimName: azuracast-station-data
+        - name: azuracast-shoutcast2-install
           persistentVolumeClaim:
-            claimName: shoutcast2-install
-        - name: stereo-tool-install
+            claimName: azuracast-shoutcast2-install
+        - name: azuracast-stereo-tool-install
           persistentVolumeClaim:
-            claimName: stereo-tool-install
-        - name: geolite-install
+            claimName: azuracast-stereo-tool-install
+        - name: azuracast-geolite-install
           persistentVolumeClaim:
-            claimName: geolite-install
-        - name: sftpgo-data
+            claimName: azuracast-geolite-install
+        - name: azuracast-sftpgo-data
           persistentVolumeClaim:
-            claimName: sftpgo-data
-        - name: backups
+            claimName: azuracast-sftpgo-data
+        - name: azuracast-backups
           persistentVolumeClaim:
-            claimName: backups
-        - name: acme
+            claimName: azuracast-backups
+        - name: azuracast-acme
           persistentVolumeClaim:
-            claimName: acme
-        - name: db-data
+            claimName: azuracast-acme
+        - name: azuracast-db-data
           persistentVolumeClaim:
-            claimName: db-data
+            claimName: azuracast-db-data
 status: {}

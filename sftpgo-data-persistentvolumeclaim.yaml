@@ -4,7 +4,7 @@ metadata:
   creationTimestamp: null
   labels:
     io.kompose.service: sftpgo-data
-  name: sftpgo-data
+  name: azuracast-sftpgo-data
 spec:
   accessModes:
     - ReadWriteOnce

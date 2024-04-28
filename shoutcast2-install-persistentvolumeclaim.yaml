@@ -4,7 +4,7 @@ metadata:
   creationTimestamp: null
   labels:
     io.kompose.service: shoutcast2-install
-  name: shoutcast2-install
+  name: azuracast-shoutcast2-install
 spec:
   accessModes:
     - ReadWriteOnce

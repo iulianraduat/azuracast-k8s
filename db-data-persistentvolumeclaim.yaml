@@ -4,7 +4,7 @@ metadata:
   creationTimestamp: null
   labels:
     io.kompose.service: db-data
-  name: db-data
+  name: azuracast-db-data
 spec:
   accessModes:
     - ReadWriteOnce

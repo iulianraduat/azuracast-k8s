@@ -4,7 +4,7 @@ metadata:
   creationTimestamp: null
   labels:
     io.kompose.service: geolite-install
-  name: geolite-install
+  name: azuracast-geolite-install
 spec:
   accessModes:
     - ReadWriteOnce

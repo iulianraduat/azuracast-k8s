@@ -4,7 +4,7 @@ metadata:
   creationTimestamp: null
   labels:
     io.kompose.service: backups
-  name: backups
+  name: azuracast-backups
 spec:
   accessModes:
     - ReadWriteOnce

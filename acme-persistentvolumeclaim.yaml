@@ -4,7 +4,7 @@ metadata:
   creationTimestamp: null
   labels:
     io.kompose.service: acme
-  name: acme
+  name: azuracast-acme
 spec:
   accessModes:
     - ReadWriteOnce

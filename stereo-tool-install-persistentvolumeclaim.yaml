@@ -4,7 +4,7 @@ metadata:
   creationTimestamp: null
   labels:
     io.kompose.service: stereo-tool-install
-  name: stereo-tool-install
+  name: azuracast-stereo-tool-install
 spec:
   accessModes:
     - ReadWriteOnce
